@@ -1,34 +1,53 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
 
-int main()
-{
-    int marks;
-    
-   cout<<"Enter Marks";
-   cin>>marks;
-   
-   if(marks>=70)
-   {
-       cout<<"A Grade"<<endl;
-   }
-   else if(marks>=60)
-   {
-       cout<<"B Grade"<<endl;
-   }
-    else if(marks>=50)
-   {
-       cout<<"C Grade"<<endl;
-   }
-    else if(marks>=40)
-   {
-       cout<<"D Grade"<<endl;
-   }
-   else
-   {
-       cout<<"Fail"<<endl;
-   }
-   
-    
+class Student {
+private:
+    string name;
+    string surname;
+    string email;
+    string password;
+
+public:
+    // Parameterized constructor
+    Student(string n, string s, string e, string p) {
+        name = n;
+        surname = s;
+        email = e;
+        password = p;
+    }
+
+    // Function to display data if password is correct
+    void display() {
+        if (password == "1234") {
+            cout << "Student Details:" << endl;
+            cout << "Name     : " << name << endl;
+            cout << "Surname  : " << surname << endl;
+            cout << "Email    : " << email << endl;
+        } else {
+            cout << "Access Denied! Wrong password." << endl;
+        }
+    }
+};
+
+int main() {
+    string name, surname, email, password;
+
+    cout << "Enter Name: ";
+    cin >> name;
+    cout << "Enter Surname: ";
+    cin >> surname;
+    cout << "Enter Email: ";
+    cin >> email;
+    cout << "Enter Password: ";
+    cin >> password;
+
+    // Create object using parameterized constructor
+    Student s1(name, surname, email, password);
+
+    // Check and display details
+    s1.display();
+
     return 0;
 }
